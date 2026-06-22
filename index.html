@@ -8,5 +8,13 @@
 <body>
     <div class="1">Hello, World!</div>
     <div class="1">Hello, NarinBoy</div>
+    <button onclick="toggleGreeting()">Toggle Greeting</button>
+    <p id="greeting" style="display:none">Welcome! 👋</p>
+    <script>
+        function toggleGreeting() {
+            const el = document.getElementById("greeting");
+            el.style.display = el.style.display === "none" ? "block" : "none";
+        }
+    </script>
 </body>
 </html>
