@@ -32,9 +32,32 @@ describe("index.html", () => {
       expect(divByClass).not.toBeNull();
     });
 
-    test('the div contains the text "Hello, World!"', () => {
+    test('the first div contains the text "Hello, World!"', () => {
       const div = document.getElementsByClassName("1")[0];
       expect(div.textContent.trim()).toBe("Hello, World!");
+    });
+
+    test("there are 10 divs with class 1 in total (1 Hello World + 9 Hello NarinBoy)", () => {
+      const allDivs = document.getElementsByClassName("1");
+      expect(allDivs.length).toBe(10);
+    });
+
+    test("there are exactly 9 divs with text Hello, NarinBoy", () => {
+      const allDivs = Array.from(document.getElementsByClassName("1"));
+      const narinBoyDivs = allDivs.filter(
+        (div) => div.textContent.trim() === "Hello, NarinBoy"
+      );
+      expect(narinBoyDivs.length).toBe(9);
+    });
+
+    test("every Hello, NarinBoy div has class 1", () => {
+      const allDivs = Array.from(document.getElementsByClassName("1"));
+      const narinBoyDivs = allDivs.filter(
+        (div) => div.textContent.trim() === "Hello, NarinBoy"
+      );
+      narinBoyDivs.forEach((div) => {
+        expect(div.classList.contains("1")).toBe(true);
+      });
     });
   });
 
