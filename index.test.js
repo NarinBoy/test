@@ -37,17 +37,17 @@ describe("index.html", () => {
       expect(div.textContent.trim()).toBe("Hello, World!");
     });
 
-    test("there are 10 divs with class 1 in total (1 Hello World + 9 Hello NarinBoy)", () => {
+    test("there are 18 divs with class 1 in total (1 Hello World + 17 Hello NarinBoy)", () => {
       const allDivs = document.getElementsByClassName("1");
-      expect(allDivs.length).toBe(10);
+      expect(allDivs.length).toBe(18);
     });
 
-    test("there are exactly 9 divs with text Hello, NarinBoy", () => {
+    test("there are exactly 17 divs with text Hello, NarinBoy", () => {
       const allDivs = Array.from(document.getElementsByClassName("1"));
       const narinBoyDivs = allDivs.filter(
         (div) => div.textContent.trim() === "Hello, NarinBoy"
       );
-      expect(narinBoyDivs.length).toBe(9);
+      expect(narinBoyDivs.length).toBe(17);
     });
 
     test("every Hello, NarinBoy div has class 1", () => {
